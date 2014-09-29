@@ -25,7 +25,7 @@
 		"snapfrozen/snapcms-mandrill": "*"
 	},
 	"autoload": {
-		"psr-4": { "snapcms\\mandrill\\": "" }
+		"psr-4": { "snapcms\\mandrill\\ui\\": "" }
 	},
 	"require-dev": {}
 }
