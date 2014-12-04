@@ -40,8 +40,8 @@ class Template extends Model
         return [
             // username and password are both required
             [['name'], 'required'],
-            [['slug', 'code', 'from_name', 'from_email', 'subject'], 'string', 'max' => 255],
-            ['text', 'safe'],
+            [['slug', 'from_name', 'from_email', 'subject'], 'string', 'max' => 255],
+            [['text', 'code'], 'safe'],
             [['from_email','publish_from_email'], 'email'],
         ];
     }

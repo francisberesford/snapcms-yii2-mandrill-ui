@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\Html;
-use yii\widgets\ActiveForm; 
+use yii\widgets\ActiveForm;
+use dosamigos\ckeditor\CKEditor;
+
 ?>
 <?php $form = ActiveForm::begin(); ?>
     <div class="mandrill-templates row snap-tabs">
@@ -32,9 +34,10 @@ use yii\widgets\ActiveForm;
             <div class="panel panel-default">
                 <div class="panel-body tab-content">
                     <div id="html" class="tab-pane active">
-                        <?= $form->field($Template, 'code', [
-                            'template' => "{label}\n{input}\n{hint}\n{error}",
-                            'labelOptions' => ['class' => '']])->textArea(['rows'=>20]); ?>
+                        <?= $form->field($Template, 'code',['template' => "{label}\n{input}\n{hint}\n{error}"])->widget(CKEditor::className(), [
+                            'clientOptions' => ['height' => 500],
+                            'preset' => 'basic'
+                        ]) ?>
                     </div>
                     <div id="text" class="tab-pane">
                         <?= $form->field($Template, 'text', [

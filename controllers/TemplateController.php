@@ -56,7 +56,7 @@ class TemplateController extends SnapCMSController
     {
         $Template = Template::findOne($id);
         if($Template->delete()) {
-            Yii::$app->session->setFlash('success', Yii::t('warning', 'Template Deleted'));
+            Yii::$app->session->setFlash('warning', Yii::t('snapcms', 'Template Deleted'));
         }
         return $this->redirect(['index']);
     }
