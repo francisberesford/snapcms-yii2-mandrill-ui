@@ -59,7 +59,7 @@ class Template extends Model
 
     public function save()
     {
-        $mandrill = Yii::$app->mail->mandrill;
+        $mandrill = Yii::$app->mailer->mandrill;
         if($this->isNew)
         {
             $result = $mandrill->templates->add(
@@ -77,7 +77,7 @@ class Template extends Model
     
     public static function findOne($id)
     {
-        $mandrill = Yii::$app->mail->mandrill;
+        $mandrill = Yii::$app->mailer->mandrill;
         $result = $mandrill->templates->info($id);
         $Template = new self();
         $Template->attributes = $result;
@@ -87,7 +87,7 @@ class Template extends Model
     
     public static function findAll()
     {
-        $mandrill = Yii::$app->mail->mandrill;
+        $mandrill = Yii::$app->mailer->mandrill;
         $list = $mandrill->templates->getList();
         $Templates = [];
         foreach($list as $attrs)
@@ -101,7 +101,7 @@ class Template extends Model
     
     public function delete()
     {
-        $mandrill = Yii::$app->mail->mandrill;
+        $mandrill = Yii::$app->mailer->mandrill;
         $result = $mandrill->templates->delete($this->slug);
         return true;
     }
