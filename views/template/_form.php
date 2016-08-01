@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
+use yii\helpers\ArrayHelper;
 
 ?>
 <?php $form = ActiveForm::begin(); ?>
@@ -35,7 +36,7 @@ use dosamigos\ckeditor\CKEditor;
                 <div class="panel-body tab-content">
                     <div id="html" class="tab-pane active">
                         <?= $form->field($Template, 'code',['template' => "{label}\n{input}\n{hint}\n{error}"])->widget(CKEditor::className(), [
-                            'clientOptions' => ['height' => 500],
+                            'clientOptions' => array_merge(['height' => 500], ArrayHelper::getValue(Yii::$app->params, 'ckeditor_clientOptions', [])),
                             'preset' => 'basic'
                         ]) ?>
                     </div>
